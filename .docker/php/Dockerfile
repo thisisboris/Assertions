@@ -22,7 +22,10 @@ RUN apt install -y --no-install-recommends --no-install-suggests \
    php${PHP_VERSION}-curl \
    php${PHP_VERSION}-ds \
    php${PHP_VERSION}-fileinfo \
-   php${PHP_VERSION}-xml
+   php${PHP_VERSION}-xml \
+   php${PHP_VERSION}-mbstring \
+   php${PHP_VERSION}-pcov \
+   php${PHP_VERSION}-xdebug
 
 RUN apt remove apache* -y
 RUN apt purge apache* -y
@@ -38,7 +41,5 @@ CMD "about"
 
 FROM php AS phpunit
 
-RUN apt install -y phpunit
 WORKDIR /app
-ENTRYPOINT ["phpunit"]
-CMD "--version"
+ENTRYPOINT ["./vendor/bin/phpunit"]

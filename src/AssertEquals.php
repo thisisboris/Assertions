@@ -11,7 +11,7 @@ readonly class AssertEquals implements Assertion
 
     public function getAssertionString(): string
     {
-        return sprintf('value equals %s', $this->source);
+        return sprintf('value equals %s', gettype($this->source));
     }
 
     public function softAssert(mixed $value): bool

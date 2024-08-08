@@ -5,7 +5,8 @@
     "license": "GNU GPLv3",
     "autoload": {
         "psr-4": {
-            "Thisisboris\\Assertions\\": "src/"
+            "Thisisboris\\Assertions\\": "src/",
+            "Thisisboris\\Assertions\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -16,7 +17,7 @@
     ],
     "require": {
         "ext-ds": "*",
-        "php": "8.3",
+        "php": "^8.3",
         "php-ds/php-ds": "^v1.5"
     },
     "require-dev": {
