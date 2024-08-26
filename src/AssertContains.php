@@ -2,10 +2,10 @@
 
 namespace Thisisboris\Assertions;
 
-use Thisisboris\Assertions\Exceptions\AssertException;
-
 readonly class AssertContains implements Assertion
 {
+    use AssertsUsingSoftAssert;
+
     public function __construct(private Assertion $assertion)
     {}
 
@@ -24,15 +24,5 @@ readonly class AssertContains implements Assertion
         }
 
         return true;
-    }
-
-    public function assert(mixed $value): void
-    {
-        if (! is_iterable($value)) throw new AssertException($this);
-        if (empty($value)) return;
-
-        foreach($value as $item) {
-            $this->assertion->assert($item);
-        }
     }
 }

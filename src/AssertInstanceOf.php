@@ -3,10 +3,11 @@
 namespace Thisisboris\Assertions;
 
 use Ds\Sequence;
-use Thisisboris\Assertions\Exceptions\AssertException;
 
 readonly class AssertInstanceOf implements Assertion
 {
+    use AssertsUsingSoftAssert;
+
     public function __construct(private Sequence $classes)
     {}
 
@@ -27,14 +28,5 @@ readonly class AssertInstanceOf implements Assertion
         }
 
         return false;
-    }
-
-    public function assert(mixed $value): void
-    {
-        if ($this->softAssert($value)) {
-            return;
-        }
-
-        throw new AssertException($this);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Thisisboris\Assertions\Exceptions;
 
-
 use Thisisboris\Assertions\Assertion;
 
 class AssertException extends \RuntimeException

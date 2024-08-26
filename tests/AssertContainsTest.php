@@ -11,6 +11,9 @@ use PHPUnit\Framework\Attributes\UsesClass;
 use Thisisboris\Assertions\AssertContains;
 use Thisisboris\Assertions\AssertEquals;
 
+/**
+ * @TODO: Convert to no longer depend on AssertEquals and just use a MockAssertion
+ */
 #[CoversClass(AssertContains::class)]
 #[UsesClass(AssertEqualsTest::class)]
 class AssertContainsTest extends AssertionTestCase

@@ -2,10 +2,10 @@
 
 namespace Thisisboris\Assertions;
 
-use Thisisboris\Assertions\Exceptions\AssertException;
-
 readonly class AssertEquals implements Assertion
 {
+    use AssertsUsingSoftAssert;
+
     public function __construct(private mixed $source)
     {}
 
@@ -17,14 +17,5 @@ readonly class AssertEquals implements Assertion
     public function softAssert(mixed $value): bool
     {
         return $this->source === $value;
-    }
-
-    public function assert(mixed $value): void
-    {
-        if ($this->softAssert($value)) {
-            return;
-        }
-
-        throw new AssertException($this);
     }
 }
