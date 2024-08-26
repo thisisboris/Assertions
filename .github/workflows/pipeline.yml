@@ -17,12 +17,15 @@ jobs:
         run: |
           docker compose run composer install
 
+      - name: Run Tests
+        run: |
+          docker compose run phpunit
+
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v9.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: docker compose run phpunit
           coverageLocations: |
             ${{github.workspace}}/.coverage/clover/
 
