@@ -25,7 +25,7 @@
     <coverage>
         <report>
             <html outputDirectory="./.coverage/html" />
-            <xml outputDirectory="./.coverage/xml" />
+            <clover outputDirectory="./.coverage/clover/clover.xml" />
         </report>
     </coverage>
 </phpunit>
