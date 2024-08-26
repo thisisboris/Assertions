@@ -23,7 +23,7 @@ jobs:
 
       - name: Fix coverage paths
         run: |
-          sed -i 's+/app/src/+/src/+g' .coverage/clover/clover.xml
+          sed -i 's+/app/src/+/src/+g' ${{github.workspace}}/.coverage/clover/clover.xml
 
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v9.0.0
