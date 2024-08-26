@@ -21,6 +21,10 @@ jobs:
         run: |
           docker compose run phpunit
 
+      - name: Fix coverage paths
+        run: |
+          sed -i 's+/app/src/+/src/+g' .coverage/clover/clover.xml
+
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v9.0.0
         env:
