@@ -13,6 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          docker compose run composer install
+
       - name: Run tests
         run: |
           docker compose run phpunit
