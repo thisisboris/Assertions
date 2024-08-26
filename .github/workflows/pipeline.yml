@@ -27,5 +27,5 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageLocations: |
-            ${{github.workspace}}/.coverage/clover/:clover
+            ${{github.workspace}}/.coverage/clover/clover.xml:clover
 
