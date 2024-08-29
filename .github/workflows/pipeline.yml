@@ -23,7 +23,7 @@ jobs:
 
       - name: Fix coverage paths
         run: |
-          docker compose run php sed -i 's+/app/src/+/src/+g' app/.coverage/clover/clover.xml
+          docker compose run php sed -i 's+/app/src/+src/+g' app/.coverage/clover/clover.xml
 
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v9.0.0
