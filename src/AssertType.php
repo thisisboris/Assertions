@@ -18,6 +18,11 @@ readonly class AssertType implements Assertion
 
     public function softAssert(mixed $value): bool
     {
-        return $this->types->contains(gettype($value));
+        $type = gettype($value);
+        if ($type === 'double' && is_float($value)) {
+            $type = 'float'; // (for historical reasons "double" is returned in case of a float, and not simply "float")
+        }
+
+        return $this->types->contains($type);
     }
 }
