@@ -6,15 +6,12 @@ use Thisisboris\Assertions\Assertion;
 
 class AssertException extends \RuntimeException
 {
-    private Assertion $assertion;
-
-    public function __construct(Assertion $assertion)
+    public function __construct(private readonly Assertion $assertion)
     {
         parent::__construct(sprintf("Failed asserting %s", $assertion->getAssertionString()));
-        $this->assertion = $assertion;
     }
 
-    protected function getAssertion(): Assertion
+    public function getAssertion(): Assertion
     {
         return $this->assertion;
     }
